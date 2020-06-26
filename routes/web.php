@@ -83,3 +83,25 @@ Route::post("categorias/store","categoriasController@store");
 //cambiar el nombr a la categoria
 Route::get("categorias/edit/{idcategoria}","categoriasController@edit");
 Route::post("categorias/update/{idcategoria}","categoriasController@update");
+
+//peliculas
+Route::get("pelicula","peliculaController@index");
+
+Route::get("acordeon",function(){
+    $categorias = App\Categoria::all();
+    return view('peliculas.acordeon')->with("categorias",$categorias);
+});
+
+Route::get("tab",function(){
+    $categorias = App\Categoria::all();
+    return view('peliculas.tab')->with("categorias",$categorias);
+});
+
+//rutas del cliente
+Route::get("clientes/JsonCities/{id_pais}","LocationController@jsoncities");
+
+Route::get("clientes/create","ClienteController@create");
+Route::post("clientes/store","ClienteController@store");
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');

@@ -13,6 +13,6 @@ class Categoria extends Model{
     //con las peliculas
         public function pelicula(){
             //muchas categorias tienen muchas peliclas y a la inversa.
-            return $this->belongsToMany('App/pelicula' , 'film_category' , 'category_id' , 'film_id');
+            return $this->belongsToMany('App\pelicula' , 'film_category' , 'category_id' , 'film_id');
         }   
 }
